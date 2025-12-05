@@ -2,62 +2,177 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta-name="viewport" content="width=device-width, initial-scale=1" />
   <title>ARCHANGLED</title>
   <style>
     :root{
-      --bg:#0f1724; --card:#0b1220; --muted:#94a3b8; --accent:#7c3aed; --glass: rgba(255,255,255,0.03);
-      --radius:14px; --gap:18px; font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --accent:#7c3aed;
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      --gap:18px;
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
+
+    *{ box-sizing:border-box; }
+
     body{
-      margin:0; background:linear-gradient(180deg,var(--bg), #071022 120%); color:#e6eef8; -webkit-font-smoothing:antialiased; padding:36px;
+      margin:0;
+      padding:36px;
+      height:100%;
+      background:linear-gradient(180deg, var(--bg), #071022 120%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
     }
-    .container{max-width:1100px;margin:0 auto}
-    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
-    .brand{display:flex;gap:14px;align-items:center}
+
+    .container{ max-width:1100px; margin:0 auto; }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:22px;
+    }
+
+    .brand{
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+
     .logo{
-      width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#1e3a8a);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;box-shadow:0 6px 18px rgba(0,0,0,0.5)
+      width:56px;
+      height:56px;
+      border-radius:12px;
+      background:linear-gradient(135deg, var(--accent), #1e3a8a);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-weight:700;
+      font-size:18px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.5);
     }
-    h1{margin:0;font-size:20px;letter-spacing:1px}
-    p.lead{margin:0;color:var(--muted);font-size:13px}
 
-    nav{display:flex;gap:12px}
-    nav button{background:transparent;border:1px solid transparent;padding:8px 12px;border-radius:10px;color:var(--muted);cursor:pointer}
-    nav button.primary{background:linear-gradient(90deg,var(--accent),#2563eb);border:1px solid rgba(255,255,255,0.06);color:white}
+    h1{ margin:0; font-size:20px; letter-spacing:1px; }
+    p.lead{ margin:0; color:var(--muted); font-size:13px; }
 
-    .hero{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
-    .hero .left{max-width:64%}
-    .hero h2{margin:0;font-size:28px}
-    .hero p{color:var(--muted);margin-top:8px}
+    nav{ display:flex; gap:12px; }
 
-    .controls{display:flex;gap:12px;align-items:center;margin-top:14px}
-    .controls input, .controls textarea{background:var(--glass);border:1px solid rgba(255,255,255,0.04);padding:10px;border-radius:10px;color:inherit}
-    .controls .btn{padding:10px 14px;border-radius:10px;border:0;background:var(--accent);cursor:pointer;color:white}
+    nav button{
+      background:transparent;
+      border:1px solid transparent;
+      padding:8px 12px;
+      border-radius:10px;
+      color:var(--muted);
+      cursor:pointer;
+    }
 
-    /* Projects grid */
-    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--gap)}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:var(--radius);padding:16px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 8px 30px rgba(2,6,23,0.6)}
-    .card h3{margin:0;font-size:16px}
-    .card p{color:var(--muted);margin:8px 0 12px;font-size:13px}
-    .tags{display:flex;gap:8px;flex-wrap:wrap}
-    .tag{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:999px;font-size:12px;color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
-    .card .meta{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
-    .card .actions{display:flex;gap:8px}
-    .icon-btn{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px;border-radius:10px;color:var(--muted);cursor:pointer}
+    nav button.primary{
+      background:linear-gradient(90deg, var(--accent), #2563eb);
+      border:1px solid rgba(255,255,255,0.06);
+      color:white;
+    }
 
-    footer{margin-top:26px;color:var(--muted);font-size:13px;text-align:center}
+    .hero{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:28px;
+    }
 
-    /* small screens */
+    .hero .left{ max-width:64%; }
+
+    .hero h2{ margin:0; font-size:28px; }
+    .hero p{ margin-top:8px; color:var(--muted); }
+
+    .controls{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-top:14px;
+    }
+
+    .controls input{
+      background:var(--glass);
+      border:1px solid rgba(255,255,255,0.04);
+      padding:10px;
+      border-radius:10px;
+      color:inherit;
+      width:100%;
+    }
+
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+      gap:var(--gap);
+    }
+
+    .card{
+      padding:16px;
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,0.03);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      box-shadow:0 8px 30px rgba(2,6,23,0.6);
+    }
+
+    .card h3{ margin:0; font-size:16px; }
+    .card p{ margin:8px 0 12px; color:var(--muted); font-size:13px; }
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .tag{
+      padding:6px 8px;
+      border-radius:999px;
+      font-size:12px;
+      color:var(--muted);
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.02);
+    }
+
+    .meta{
+      margin-top:12px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .actions{ display:flex; gap:8px; }
+
+    .icon-btn{
+      padding:8px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.04);
+      background:transparent;
+      color:var(--muted);
+      cursor:pointer;
+    }
+
+    footer{
+      margin-top:26px;
+      color:var(--muted);
+      text-align:center;
+      font-size:13px;
+    }
+
     @media (max-width:700px){
-      .hero{flex-direction:column;align-items:flex-start}
-      .hero .left{max-width:100%}
+      .hero{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .hero .left{ max-width:100%; }
     }
   </style>
 </head>
+
 <body>
   <div class="container">
+
     <header>
       <div class="brand">
         <div class="logo">A</div>
@@ -76,24 +191,20 @@
     <section class="hero">
       <div class="left">
         <h2>Projects</h2>
-        <p>Create, edit and arrange your projects. Each project appears as a distinct box so visitors can quickly scan and dive into details.</p>
+        <p>Create, edit and arrange your projects. Each project appears as a distinct box.</p>
 
-        <div class="controls" style="margin-top:12px">
-          <input id="search" placeholder="Search projects by title or tag" aria-label="Search projects">
+        <div class="controls">
+          <input id="search" placeholder="Search projects by title or tag" />
         </div>
-      </div>
-      <div class="right">
-        <!-- Empty for balance - could hold an illustration -->
       </div>
     </section>
 
     <main>
-      <section id="projects" class="projects" aria-live="polite">
-        <!-- Project cards inserted here -->
-      </section>
+      <section id="projects" class="projects"></section>
     </main>
 
     <footer>Built with ❤️ · ARCHANGLED — 2025</footer>
+
   </div>
 
   <template id="project-template">
@@ -104,88 +215,19 @@
       <div class="meta">
         <small class="proj-link"></small>
         <div class="actions">
-          <button class="icon-btn btn-edit" title="Edit">✏️</button>
-          <button class="icon-btn btn-copy" title="Copy">📋</button>
-          <button class="icon-btn btn-delete" title="Delete">🗑️</button>
+          <button class="icon-btn btn-edit">✏️</button>
+          <button class="icon-btn btn-copy">📋</button>
+          <button class="icon-btn btn-delete">🗑️</button>
         </div>
       </div>
     </article>
   </template>
 
   <script>
-    // Sample projects to start with
     const initialProjects = [
-      {id:1, title:'Arc Reactor UI', desc:'Interactive dashboard exploring geometry-driven layouts and responsive micro-interactions.', tags:['UI','experiment'], link:'#'},
-      {id:2, title:'Tilted Gallery', desc:'A gallery that uses angular cropping to create an archival aesthetic for photography.', tags:['gallery','photography'], link:'#'},
-      {id:3, title:'Angles & Shadows', desc:'CSS demo focusing on layered shadows and 3D tilt effects using only CSS transforms.', tags:['css','demo'], link:'#'}
+      { id:1, title:'Arc Reactor UI', desc:'Geometry-driven dashboard interactions.', tags:['UI','experiment'], link:'#' },
+      { id:2, title:'Tilted Gallery', desc:'Angular-cropped gallery aesthetic.', tags:['gallery','photography'], link:'#' },
+      { id:3, title:'Angles & Shadows', desc:'3D shadows & transforms using CSS.', tags:['css','demo'], link:'#' }
     ];
 
-    const projectsEl = document.getElementById('projects');
-    const template = document.getElementById('project-template');
-    let projects = JSON.parse(localStorage.getItem('arch_projects') || 'null') || initialProjects.slice();
-    let idCounter = projects.reduce((m,p)=>Math.max(m,p.id),0) + 1;
-
-    function renderProjects(list){
-      projectsEl.innerHTML='';
-      if(!list.length){ projectsEl.innerHTML='<p style="color:var(--muted)">No projects yet — click "New Project" to add one.</p>'; return }
-      list.forEach(p=>{
-        const node = template.content.cloneNode(true);
-        node.querySelector('.proj-title').textContent = p.title;
-        node.querySelector('.proj-desc').textContent = p.desc;
-        node.querySelector('.proj-link').textContent = p.link ? p.link : '';
-        const tagsWrap = node.querySelector('.tags');
-        (p.tags || []).forEach(t => { const tEl = document.createElement('span'); tEl.className='tag'; tEl.textContent=t; tagsWrap.appendChild(tEl) });
-
-        // buttons
-        node.querySelector('.btn-delete').addEventListener('click',()=>{
-          if(!confirm('Delete this project?')) return; projects = projects.filter(x=>x.id!==p.id); saveAndRender();
-        });
-        node.querySelector('.btn-edit').addEventListener('click',()=> openEditor(p));
-        node.querySelector('.btn-copy').addEventListener('click',()=>{
-          navigator.clipboard.writeText(JSON.stringify(p, null, 2)).then(()=>alert('Project copied to clipboard'));
-        });
-
-        projectsEl.appendChild(node);
-      })
-    }
-
-    function saveAndRender(){ localStorage.setItem('arch_projects', JSON.stringify(projects)); renderProjects(projects); }
-
-    // Create a simple prompt-based editor for speed
-    function openEditor(project){
-      const isNew = !project;
-      const title = prompt('Project title', project ? project.title : 'Untitled Project');
-      if(title === null) return;
-      const desc = prompt('Short description', project ? project.desc : 'Describe this project');
-      if(desc === null) return;
-      const tags = prompt('Comma-separated tags', project ? (project.tags || []).join(',') : '');
-      if(tags === null) return;
-      const link = prompt('Optional link (URL)', project ? project.link || '' : '');
-
-      if(isNew){
-        projects.unshift({id:idCounter++, title:title.trim(), desc:desc.trim(), tags: tags.split(',').map(s=>s.trim()).filter(Boolean), link:link.trim()});
-      } else {
-        project.title = title.trim(); project.desc = desc.trim(); project.tags = tags.split(',').map(s=>s.trim()).filter(Boolean); project.link = link.trim();
-      }
-      saveAndRender();
-    }
-
-    document.getElementById('btnAdd').addEventListener('click', ()=>openEditor(null));
-    document.getElementById('btnExport').addEventListener('click', ()=>{
-      const blob = new Blob([JSON.stringify(projects, null, 2)], {type:'application/json'});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a'); a.href=url; a.download='archangled-projects.json'; document.body.appendChild(a); a.click(); a.remove();
-    });
-
-    document.getElementById('search').addEventListener('input', (e)=>{
-      const q = e.target.value.trim().toLowerCase();
-      if(!q) return renderProjects(projects);
-      const filtered = projects.filter(p => p.title.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q) || (p.tags||[]).some(t=>t.toLowerCase().includes(q)));
-      renderProjects(filtered);
-    });
-
-    // initial render
-    renderProjects(projects);
-  </script>
-</body>
-</html>
+    const projectsEl = document.getEl
